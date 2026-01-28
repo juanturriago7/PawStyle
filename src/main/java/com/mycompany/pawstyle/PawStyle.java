@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.pawstyle;
 
 import com.mycompany.pawstyle.igu.Principal;
 
-/**
- *
- * @author cr7
- */
 public class PawStyle {
 
     public static void main(String[] args) {
