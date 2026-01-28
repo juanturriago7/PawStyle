@@ -1,8 +1,20 @@
 package com.mycompany.pawstyle.logica;
 
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+//Se mapea la clase como entidad, así me la detecta como tabla en la base de datos
+@Entity
 public class Mascota {
     
+    //Id = Es la primary key de mi base de datos
+    //Generate = es para que se genere automatico en modo secuencia
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int num_cliente;
     private String nombre;
     private String raza;
@@ -10,9 +22,11 @@ public class Mascota {
     private String alergico;
     private String atencion_especial;
     private String observaciones;
-    
+    //Es para indicar que duenio es una relacion y le estoy indicando que es uno a uno
+    @OneToOne
     private Duenio unDuenio;
 
+    //Constructor vacio
     public Mascota() {
     }
 

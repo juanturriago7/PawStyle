@@ -1,11 +1,20 @@
 package com.mycompany.pawstyle.igu;
 
+import com.mycompany.pawstyle.logica.Controladora;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 
 public class CargaDatos extends javax.swing.JFrame {
+    
+    //Se crea controladora de la logica para poder llamar
+    Controladora control = new Controladora();
+    
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CargaDatos.class.getName());
 
     public CargaDatos() {
+        //control = new Controladora();
         initComponents();
     }
 
@@ -273,7 +282,32 @@ public class CargaDatos extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        
+        //Lo que la persona copie en el campo, lo guarda
+        String nombreMasco = txtNombre.getText();
+        String raza = txtRaza.getText();
+        String color = txtColor.getText();
+        String observaciones = txtObservaciones.getText();
+        String nombreDuenio = txtNomDuenio.getText();
+        String celDuenio = txtCelDuenio.getText();
+        
+        //Aca vamos hacer lo de los combobox
+        //Se hace un casteo para transformarlo en String, porque nos devuelve un object
+        String alergico = (String) cmbAlergico.getSelectedItem();
+        String atenEsp = (String) cmbAtEsp.getSelectedItem();
+ 
+        //Cuando hagamos clic en el boton guardar, se va a llamar la controladora
+        control.guardar(nombreMasco, raza, color, observaciones, nombreDuenio, celDuenio, alergico, atenEsp);
+        
+        
+        //Cuando se de click en guardar, que nos abra un cartel indicando que se guardo
+        //Código sacado de internet
+        JOptionPane optionPane = new JOptionPane("Se guardó correctamente");
+        optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+        JDialog dialog = optionPane.createDialog("Gurdado Exitoso");
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(true);
+        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
 
