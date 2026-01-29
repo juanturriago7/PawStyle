@@ -28,4 +28,12 @@ public class ControladoraPersistencia {
         //return porque devuelve una lista
         return mascoJpa.findMascotaEntities();
     }
+
+    public void borrarMascota(int num_cliente) {
+        try {
+            mascoJpa.destroy(num_cliente);
+        } catch (Exception ex) {
+            System.getLogger(ControladoraPersistencia.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }
 }

@@ -163,28 +163,36 @@ public class VerDatos extends javax.swing.JFrame {
                 control.borrarMascota(num_cliente);
                 
                 //Aviso al usuario que borró correctamente
-                
-                
-                
-               
-                
+                mostrarMensaje("Mascota eliminada correctamente", "Info", "Borrado de mascota");
+                //Tiene que volver a cargar la tabla para que se muestre la base de datos y ya no aparezca el registro que se borró
+                cargarTabla();
+                  
                 
             }
+            else{
+                mostrarMensaje("No seleccionó ninguna mascota", "Error", "Error al eliminar");
+                
+            }
+            
+        }
+        else{
+                mostrarMensaje("No hay nada para eliminar en la tabla", "Error", "Error al eliminar");
+            
         }
         
-        //Necesito capturar el primer retristo, capturar el id 
+    
         
     }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     //Metodo para los mensajes de alerta
-    public void MostrarMensaje(String mensaje, String tipo, String titulo){
+    public void mostrarMensaje(String mensaje, String tipo, String titulo){
         
          JOptionPane optionPane = new JOptionPane(mensaje);
          if(tipo.equals("Info")){
             optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
          }else if(tipo.equals("Error")){
-            optionPane.setMessageType(JOptionPane.ERROR);
+            optionPane.setMessageType(JOptionPane.ERROR_MESSAGE);
          }
          JDialog dialog = optionPane.createDialog(titulo);
          dialog.setAlwaysOnTop(true);

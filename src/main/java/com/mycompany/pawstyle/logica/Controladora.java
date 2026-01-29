@@ -41,7 +41,8 @@ public class Controladora {
     }
 
     public void borrarMascota(int num_cliente) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       //Llamamos la controladora de persistencia para que haga la accion con la BD
+       controlPesis.borrarMascota(num_cliente);
     }
     
 }
