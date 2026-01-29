@@ -3,6 +3,8 @@ package com.mycompany.pawstyle.igu;
 import com.mycompany.pawstyle.logica.Controladora;
 import com.mycompany.pawstyle.logica.Mascota;
 import java.util.List;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class VerDatos extends javax.swing.JFrame {
@@ -65,6 +67,7 @@ public class VerDatos extends javax.swing.JFrame {
         btnEditar.setIcon(new javax.swing.ImageIcon("/home/cr7/Pictures/PawStyle/edit.png")); // NOI18N
 
         btnEliminar.setIcon(new javax.swing.ImageIcon("/home/cr7/Pictures/PawStyle/delete.png")); // NOI18N
+        btnEliminar.addActionListener(this::btnEliminarActionPerformed);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -147,7 +150,47 @@ public class VerDatos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        //Boton de eliminar
+        //Lo ideal de la validación es para evitar que el usuario de eliminar, sin tener nada seleccionado, porque ahi fallaria todo
+        //Si tiene más de cero filas, es porque por lo menos tiene un regristo
+        if(tablaMascotas.getRowCount() > 0){
+            //Si el regusltado es distinto menos 1, significa que no hay nada seleccionado, porque arranca desde 0
+            if(tablaMascotas.getSelectedRow()!=-1){
+                //Como ya validamos que es distinto a menos 1, ya podemos hacer el proceso de obtencion del ID
+                int num_cliente = Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(),0)));
+                //Llamo al metodo borrar en mi logica
+                control.borrarMascota(num_cliente);
+                
+                //Aviso al usuario que borró correctamente
+                
+                
+                
+               
+                
+                
+            }
+        }
+        
+        //Necesito capturar el primer retristo, capturar el id 
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
+
+    //Metodo para los mensajes de alerta
+    public void MostrarMensaje(String mensaje, String tipo, String titulo){
+        
+         JOptionPane optionPane = new JOptionPane(mensaje);
+         if(tipo.equals("Info")){
+            optionPane.setMessageType(JOptionPane.INFORMATION_MESSAGE);
+         }else if(tipo.equals("Error")){
+            optionPane.setMessageType(JOptionPane.ERROR);
+         }
+         JDialog dialog = optionPane.createDialog(titulo);
+         dialog.setAlwaysOnTop(true);
+         dialog.setVisible(true);
+        
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
