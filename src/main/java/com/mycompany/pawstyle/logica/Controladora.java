@@ -1,6 +1,7 @@
 package com.mycompany.pawstyle.logica;
 
 import com.mycompany.pawstyle.persistencia.ControladoraPersistencia;
+import java.util.List;
 
 public class Controladora {
     
@@ -28,6 +29,13 @@ public class Controladora {
         
         //Llama a la persistencia para guardar en la BD
         controlPesis.guardar(duenio,masco);
+        
+        
+    }
+
+    public List<Mascota> traerMascotas() {
+        
+        return controlPesis.traerMascotas();
         
         
     }

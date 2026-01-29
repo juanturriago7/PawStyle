@@ -2,6 +2,7 @@ package com.mycompany.pawstyle.persistencia;
 
 import com.mycompany.pawstyle.logica.Duenio;
 import com.mycompany.pawstyle.logica.Mascota;
+import java.util.List;
 
 public class ControladoraPersistencia {
     
@@ -21,5 +22,10 @@ public class ControladoraPersistencia {
         
         
         
+    }
+
+    public List<Mascota> traerMascotas() {
+        //return porque devuelve una lista
+        return mascoJpa.findMascotaEntities();
     }
 }
