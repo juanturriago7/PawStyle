@@ -65,6 +65,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2.setText("Datos de mascotas:");
 
         btnEditar.setIcon(new javax.swing.ImageIcon("/home/cr7/Pictures/PawStyle/edit.png")); // NOI18N
+        btnEditar.addActionListener(this::btnEditarActionPerformed);
 
         btnEliminar.setIcon(new javax.swing.ImageIcon("/home/cr7/Pictures/PawStyle/delete.png")); // NOI18N
         btnEliminar.addActionListener(this::btnEliminarActionPerformed);
@@ -184,6 +185,43 @@ public class VerDatos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+
+        //Boton de Editar
+        //Lo ideal de la validación es para evitar que el usuario de eliminar, sin tener nada seleccionado, porque ahi fallaria todo
+        //Si tiene más de cero filas, es porque por lo menos tiene un regristo
+        if(tablaMascotas.getRowCount() > 0){
+            //Si el regusltado es distinto menos 1, significa que no hay nada seleccionado, porque arranca desde 0
+            if(tablaMascotas.getSelectedRow()!=-1){
+                 //Como ya validamos que es distinto a menos 1, ya podemos hacer el proceso de obtencion del ID
+                int num_cliente = Integer.parseInt(String.valueOf(tablaMascotas.getValueAt(tablaMascotas.getSelectedRow(),0)));
+                
+                //Instanciamos modificar
+                //Hay que pasar el num del cliente al constructor para que el sepa a quien se le apunta
+                ModificarDatos pantallaModi =  new ModificarDatos(num_cliente);
+                //Para que sea visible
+                pantallaModi.setVisible(true);
+                //Para que lo ponga en el medio
+                pantallaModi.setLocationRelativeTo(null);
+                
+                //Hacer que la ventana se cierre
+                this.dispose();
+                
+                
+            }else{
+                mostrarMensaje("No seleccionó ninguna mascota", "Error", "Error al eliminar");
+                
+            }
+            
+        }else{
+                mostrarMensaje("No hay nada para eliminar en la tabla", "Error", "Error al eliminar");
+            
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
 
     //Metodo para los mensajes de alerta
     public void mostrarMensaje(String mensaje, String tipo, String titulo){
@@ -212,7 +250,9 @@ public class VerDatos extends javax.swing.JFrame {
     private javax.swing.JTable tablaMascotas;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarTabla() {
+    
+    //Ponemos el metodo publico porque lo vamos a utilizar en la clase de editar tambien
+    public void cargarTabla() {
         //Definir el modelo que queremos que tenga la tabla
         DefaultTableModel modeloTabla = new DefaultTableModel(){
             //Agregamos un parametro para que no se pueda modificar la tabla
@@ -226,7 +266,7 @@ public class VerDatos extends javax.swing.JFrame {
         
         //Establecemos los nombres de la columnas
         //Creamos un vector
-        String titulos[] = {"Num", "Nombre", "Color", "Raza", "Alergico", "At. Esp","Duenio", "Cel"};
+        String titulos[] = {"Num", "Nombre", "Raza", "Color", "Alergico", "At. Esp","Duenio", "Cel"};
         //Ahora los setteamos a la tabla
         modeloTabla.setColumnIdentifiers(titulos);
         
@@ -241,7 +281,7 @@ public class VerDatos extends javax.swing.JFrame {
             for(Mascota masco : listaMascotas){
                 //Se pone tipo objetc, porque tengo varios datos de String y enteros, es para que no tengamos que hacer conversiones
                 Object[] objeto = {masco.getNum_cliente(), masco.getNombre(), masco.getRaza(), 
-                    masco.getRaza(), masco.getAlergico(), masco.getAtencion_especial(), 
+                    masco.getColor(), masco.getAlergico(), masco.getAtencion_especial(), 
                     masco.getUnDuenio().getNombre(), masco.getUnDuenio().getCelDuenio()};
                 
                 modeloTabla.addRow(objeto);
