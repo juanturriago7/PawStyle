@@ -35,6 +35,7 @@ public class VerDatos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -103,6 +104,9 @@ public class VerDatos extends javax.swing.JFrame {
                 .addContainerGap(58, Short.MAX_VALUE))
         );
 
+        jButton1.setIcon(new javax.swing.ImageIcon("/home/cr7/Pictures/PawStyle/atras.png")); // NOI18N
+        jButton1.addActionListener(this::jButton1ActionPerformed);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -113,16 +117,22 @@ public class VerDatos extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
+                        .addGap(14, 14, 14)
+                        .addComponent(jButton1)
+                        .addGap(139, 139, 139)
                         .addComponent(jLabel1)))
                 .addContainerGap(292, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
@@ -222,6 +232,21 @@ public class VerDatos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEditarActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        // Crea una instancia de tu ventana principal
+        Principal princ = new Principal();
+        // La hace visible
+        princ.setVisible(true);
+        // Posiciona la ventana en el centro de tu monitor
+        princ.setLocationRelativeTo(null);
+    
+        // Cierra la ventana actual de Cargar Datos
+        this.dispose();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     //Metodo para los mensajes de alerta
     public void mostrarMensaje(String mensaje, String tipo, String titulo){
@@ -242,6 +267,7 @@ public class VerDatos extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

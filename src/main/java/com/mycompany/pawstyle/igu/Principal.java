@@ -131,6 +131,8 @@ public class Principal extends javax.swing.JFrame {
         pantalla.setVisible(true);
         pantalla.setLocationRelativeTo(null);
         
+        //Cerramos la ventana principal cuando le demos clic a cargar datos
+        this.dispose();
         
     }//GEN-LAST:event_btnCargaDatosActionPerformed
 

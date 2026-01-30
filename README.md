@@ -51,7 +51,7 @@ mvn clean compile
 
 # Ejecutar la aplicación
 mvn exec:java -Dexec.mainClass="com.mycompany.pawstyle.PawStyle"
-
+```
 
 ---
 
