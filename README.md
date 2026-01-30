@@ -1,55 +1,51 @@
-# 🐾 PawStyle - Sistema de Gestión de Peluquería Canina
+# 🐾 PawStyle - Dog Grooming Management System
 
-**PawStyle** es una aplicación de escritorio robusta diseñada para la administración de registros en una peluquería canina. El sistema implementa una arquitectura multicapa para garantizar un manejo eficiente y persistente de la información de las mascotas y sus respectivos dueños.
-
----
-
-## 🎬 Demo del Proyecto
-
-En esta sección se muestra el funcionamiento de la aplicación, desde el registro de la mascota hasta la visualización en la tabla de gestión.
-
-
-
+**PawStyle** is a robust desktop application designed for managing records in a dog grooming business. The system implements a multi-layer architecture to ensure efficient and persistent handling of pet and owner information.
 
 ---
 
+## 🎬 Project Demo
 
-## 🚀 Tecnologías Utilizadas
+This section demonstrates the application's functionality, from pet registration to the management table visualization.
 
-El proyecto fue desarrollado utilizando un stack tecnológico moderno, aprovechando las capacidades de **Java 21** y herramientas de gestión de nivel profesional:
-
-* **Lenguaje:** Java 21 (JDK 21)
-* **Gestor de Dependencias:** Maven (para la automatización de la construcción y manejo de librerías)
-* **Persistencia:** JPA (Java Persistence API) con Hibernate/EclipseLink
-* **Base de Datos:** MySQL (gestionado a través de XAMPP)
-* **Interfaz Gráfica:** Java Swing (diseñado con NetBeans GUI Builder)
-* **Sistema Operativo:** Desarrollado íntegramente en un entorno Linux (Kubuntu)
-
-
+![Project Preview](./assets/demo.gif)
 
 ---
 
-## 🛠️ Instalación y Configuración
+## 🚀 Technologies Used
 
-Para poner en marcha este proyecto en tu entorno local, sigue estos pasos:
+The project was developed using a modern technology stack, leveraging **Java 21** capabilities and professional-grade management tools:
 
-### 1. Requisitos Previos
-* Tener instalado **Java 21**.
-* Contar con **Maven** instalado y configurado en el PATH.
-* Tener un servidor MySQL activo (XAMPP recomendado).
+* **Language:** Java 21 (JDK 21).
+* **Dependency Manager:** Maven (for build automation and library management).
+* **Persistence:** JPA (Java Persistence API) with Hibernate/EclipseLink.
+* **Database:** MySQL (managed via XAMPP).
+* **Graphical User Interface (GUI):** Java Swing (designed with NetBeans GUI Builder).
+* **Operating System:** Developed entirely in a Linux environment (Kubuntu).
 
-### 2. Configuración de la Base de Datos
-1.  Inicia el módulo MySQL en XAMPP.
-2.  Crea una base de datos llamada `paw_style`.
-3.  El sistema está configurado para generar las tablas automáticamente al ejecutarse por primera vez gracias a la propiedad `javax.persistence.schema-generation.database.action` con valor `create`.
+---
 
-### 3. Compilación y Ejecución
-Desde la terminal de tu sistema (Kubuntu/Linux):
+## 🛠️ Installation and Configuration
+
+To set up this project in your local environment, follow these steps:
+
+### 1. Prerequisites
+* **Java 21** installed.
+* **Maven** installed and configured in your PATH.
+* An active **MySQL** server (XAMPP recommended).
+
+### 2. Database Configuration
+1. Start the MySQL module in XAMPP.
+2. Create a database named `paw_style`.
+3. The system is configured to generate tables automatically upon the first execution using the `javax.persistence.schema-generation.database.action` property set to `create`.
+
+### 3. Compilation and Execution
+From your system terminal (Kubuntu/Linux):
 ```bash
-# Limpiar y compilar el proyecto
+# Clean and compile the project
 mvn clean compile
 
-# Ejecutar la aplicación
+# Run the application
 mvn exec:java -Dexec.mainClass="com.mycompany.pawstyle.PawStyle"
 ```
 
@@ -60,7 +56,7 @@ mvn exec:java -Dexec.mainClass="com.mycompany.pawstyle.PawStyle"
 <table border="0">
   <tr>
     <td width="150">
-      <img src="https://github.com/identicons/jturriago.png" width="100" alt="Avatar">
+      <img src="https://github.com/identicons/juanturriago7.png" width="100" alt="Avatar">
     </td>
     <td>
       <strong>Juan Turriago</strong><br>
@@ -72,4 +68,4 @@ mvn exec:java -Dexec.mainClass="com.mycompany.pawstyle.PawStyle"
 </table>
 
 ---
-*Este proyecto fue realizado con fines académicos para la formación profesional en desarrollo de software (2026).*
+*This project was carried out for academic purposes for professional training in software development (2026).*
